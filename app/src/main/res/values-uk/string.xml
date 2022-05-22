@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Готель для тварин</string>
+    <string name="email">Пошта</string>
+    <string name="name">Імя</string>
+    <string name="surname">Прізвище</string>
+    <string name="phone">Телефон</string>
+    <string name="password">Пароль</string>
+    <string name="register">Регістрація</string>
+    <string name="cancel">Відміна</string>
+    <string name="ok">Ок</string>
+    <string name="emptyEmail">Введіть свою пошту</string>
+    <string name="emptyName">Введіть свое імя</string>
+    <string name="emptySurname">Введіть свое прізвище</string>
+    <string name="emptyPhone">Введіть свій телефон</string>
+    <string name="emptyPassword">Введіть свій пароль</string>
+    <string name="login">Вхід</string>
+    <string name="registerSuccess">Користувач доданий усаішно</string>
+    <string name="settings">Налаштування</string>
+    <string name="add">Додати</string>
+    <string name="payment">Оплата</string>
+    <string name="language">Мова</string>
+    <string name="edit_profile">Редагувати профіль</string>
+    <string name="change_password">Змініть пароль</string>
+    <string name="logout">Вийти</string>
+    <string name="uk">Українська</string>
+    <string name="en">Англійська</string>
+    <string name="weight">Вага</string>
+    <string name="age">Вік</string>
+    <string name="cat">Кіт</string>
+    <string name="dog">Собака</string>
+    <string name="parrot">Папуга</string>
+    <string name="hamster">Хомяк</string>
+    <string name="turtle">Черепаха</string>
+    <string name="you_pay">Вам потрібно сплатити:</string>
+    <string name="emptyPatment">У вас немає рахунку</string>
+</resources>

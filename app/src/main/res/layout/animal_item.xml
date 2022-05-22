@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/table"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_12sdp"
+    android:layout_marginTop="@dimen/_12sdp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageNote"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_animal" />
+
+    <TableLayout android:layout_weight="10">
+
+        <TextView
+            android:id="@+id/animalName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:includeFontPadding="false"
+            android:textAlignment="viewEnd"
+            android:textSize="@dimen/_16ssp" />
+
+        <TextView
+            android:id="@+id/animalType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/_16ssp" />
+
+        <TextView
+            android:id="@+id/animalAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/_16ssp" />
+    </TableLayout>
+</TableRow>
