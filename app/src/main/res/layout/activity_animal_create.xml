@@ -162,18 +162,30 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spinnerEmployee" />
 
-
             <ImageView
-                android:id="@+id/imageRecommendation"
+                android:id="@+id/imageActivity"
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
                 android:layout_marginStart="204dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_reaction"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageRecommendation"
+                app:layout_constraintStart_toEndOf="@+id/imageMeal" />
+
+            <ImageView
+                android:id="@+id/imageRecommendation"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_star"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@id/spinnerEmployee" />
+                app:layout_constraintEnd_toStartOf="@+id/imagePayment"
+                app:layout_constraintStart_toEndOf="@+id/imageActivity" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

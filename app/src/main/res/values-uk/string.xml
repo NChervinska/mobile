@@ -33,4 +33,8 @@
     <string name="turtle">Черепаха</string>
     <string name="you_pay">Вам потрібно сплатити:</string>
     <string name="emptyPatment">У вас немає рахунку</string>
+    <string name="new_password">Новий пароль</string>
+    <string name="old_password">Старий пароль</string>
+    <string name="sleepHour">Часи сну: </string>
+    <string name="activeHour">Активні часи: </string>
 </resources>

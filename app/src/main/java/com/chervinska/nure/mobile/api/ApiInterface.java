@@ -1,5 +1,6 @@
 package com.chervinska.nure.mobile.api;
 
+import com.chervinska.nure.mobile.models.Activity;
 import com.chervinska.nure.mobile.models.Animal;
 import com.chervinska.nure.mobile.models.AnimalApiModel;
 import com.chervinska.nure.mobile.models.Client;
@@ -9,6 +10,7 @@ import com.chervinska.nure.mobile.models.LoginApiModel;
 import com.chervinska.nure.mobile.models.UserApiModel;
 import com.chervinska.nure.mobile.models.UserResponseModel;
 
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,18 +38,15 @@ public interface ApiInterface {
     @GET("client")
     Call<Client> getByToken(@Header("Authorization") String token);
 
-    @Headers({"Accept: application/json",
-            "Content-Type: application/json"})
     @POST("animal/add")
-    Call<Animal> addAnimal(@Header("Authorization") String token, @Body AnimalApiModel animalApiModel);
+    Call<Animal> addAnimal( @Body() AnimalApiModel animalApiModel,
+            @Header("Authorization") String token);
 
-    @Headers({"Accept: application/json",
-            "Content-Type: application/json"})
     @PUT("animal/edit/{id}")
     Call<Animal> editAnimal(
             @Path("id") String id,
             @Header("Authorization") String token,
-            @Body AnimalApiModel animalApiModel
+            @Body() AnimalApiModel animalApiModel
     );
 
     @Headers({"Accept: application/json"})
@@ -64,4 +63,7 @@ public interface ApiInterface {
 
     @GET("activity/getCheck/{id}")
     Call<Integer> getCheck(@Path("id") String animalId, @Header("Authorization") String token);
+
+    @GET("activity/getByAnimalId/{id}")
+    Call<List<Activity>> getActivityByAnimalId(@Path("id") String animalId, @Header("Authorization") String token);
 }

@@ -25,10 +25,15 @@ import com.chervinska.nure.mobile.models.AnimalApiModel;
 import com.chervinska.nure.mobile.models.Employee;
 import com.chervinska.nure.mobile.services.ApiClient;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,8 +63,8 @@ public class AnimalCreateActivity extends AppCompatActivity {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         root = findViewById(R.id.createRoot);
-        ImageView imageBack = findViewById(R.id.imageBack);
-        imageBack.setOnClickListener(new View.OnClickListener() {
+        backButton = findViewById(R.id.imageBack);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
@@ -170,13 +175,25 @@ public class AnimalCreateActivity extends AppCompatActivity {
         paymentIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(updateAnimal == null) return;
+                if (updateAnimal == null) return;
                 Intent intent = new Intent(AnimalCreateActivity.this, PaymentActivity.class);
                 intent.putExtra("token", token);
                 intent.putExtra("animal", updateAnimal.getId());
                 startActivity(intent);
             }
         });
+        ImageView activityIcon = findViewById(R.id.imageActivity);
+        activityIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (updateAnimal == null) return;
+                Intent intent = new Intent(AnimalCreateActivity.this, ActivitiesActivity.class);
+                intent.putExtra("token", token);
+                intent.putExtra("animal", updateAnimal.getId());
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void getFeedRecommendation() {
@@ -187,7 +204,8 @@ public class AnimalCreateActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(response.body())));
+                    final int x = response.body().indexOf("//");
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(response.body().substring(x + 2))));
                 }
             }
 
@@ -208,7 +226,8 @@ public class AnimalCreateActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(response.body())));
+                    final int x = response.body().indexOf("//");
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(response.body().substring(x + 2))));
                 }
             }
 
@@ -328,8 +347,9 @@ public class AnimalCreateActivity extends AppCompatActivity {
             }
         };
 
+
         if (updateAnimal == null) {
-            Call<Animal> animalCall = apiInterface.addAnimal("Bearer " + token, animal);
+            Call<Animal> animalCall = apiInterface.addAnimal(animal, "Bearer " + token);
             animalCall.enqueue(callBack);
 
             AnimalCreateActivity.this.finishActivity(0);
